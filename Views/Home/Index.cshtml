@@ -1,9 +1,76 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
     Layout = null;
+    
+    string[] pizzasName = { "Margherita", "Napoli", "4 gusti", "Romana" };    
+
+    string[] pizzasDescription =
+    { 
+        "La pizza Margherita",
+        "la pizza Napoli",
+        "La pizza 4 gusti",
+        "La pizza Romana"
+    };
+
+    string[] pizzasImages = 
+    { 
+        "https://upload.wikimedia.org/wikipedia/commons/c/c8/Pizza_Margherita_stu_spivack.jpg", 
+        "https://www.donnamoderna.com/content/uploads/2021/08/pizza-napoli.jpg", 
+        "https://ledeliziedigiopi.altervista.org/wp-content/uploads/2020/06/Pizza-4-2.png", 
+        "https://www.giallozafferano.it/images/5-560/Pizza-Romana_780x520_wm.jpg" 
+    };
+
+    double[] pizzasPrice = { 10, 5, 15, 18 };
 }
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ciao</title>
+
+    <!-- Styles -->
+    <link href="~/css/site.css" rel="stylesheet">
+</head>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Pizze</h1>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Immagine</th>
+                <th scope="col">Prezzo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (String pizza in pizzasName)
+                {
+                    <th>@pizza</th>
+                }
+            </tr>
+            <tr>
+                @foreach (String pizza in pizzasDescription)
+                {
+                    <th>@pizza</th>
+                }
+            </tr>
+            <tr>
+                @foreach (String pizza in pizzasImages)
+                {
+                    <th> <img src="@pizza" alt="" /></th>
+                }
+            </tr>
+            <tr>
+                @foreach (Double pizza in pizzasPrice)
+                {
+                    <th>@pizza&euro;</th>
+                }
+            </tr>
+        </tbody>
+    </table>
+
 </div>
